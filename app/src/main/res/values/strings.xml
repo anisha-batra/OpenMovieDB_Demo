@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">OpenMovieDBSearch</string>
+    <string name="title_activity_movie_search_results">MovieSearchResultsActivity</string>
+</resources>
