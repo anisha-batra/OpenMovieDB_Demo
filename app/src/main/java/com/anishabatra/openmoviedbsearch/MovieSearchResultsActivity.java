@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 
@@ -16,6 +17,11 @@ public class MovieSearchResultsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_search_results);
 
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+
         recyclerViewSearchItem = findViewById(R.id.recyclerViewSearchItem);
         ArrayList<MovieSearchInfo> movieSearchInfos = (ArrayList<MovieSearchInfo>)getIntent().getSerializableExtra("MovieSearchInfos");
 
@@ -23,5 +29,13 @@ public class MovieSearchResultsActivity extends AppCompatActivity {
 
         MovieSearchInfoAdapter movieSearchInfoAdapter = new MovieSearchInfoAdapter(movieSearchInfos);
         recyclerViewSearchItem.setAdapter(movieSearchInfoAdapter);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
