@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SearchHistoryActivity" />
-        <activity android:name=".MovieSearchResultsActivity"></activity>
+        <activity android:name=".MovieSearchResultsActivity" android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>

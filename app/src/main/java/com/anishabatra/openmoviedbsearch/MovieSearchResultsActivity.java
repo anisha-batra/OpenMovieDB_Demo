@@ -18,7 +18,7 @@ public class MovieSearchResultsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_search_results);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         recyclerViewSearchItem = findViewById(R.id.recyclerViewSearchItem);
         ArrayList<MovieSearchInfo> movieSearchInfos = (ArrayList<MovieSearchInfo>)getIntent().getSerializableExtra("MovieSearchInfos");
