@@ -1,5 +1,6 @@
 package com.anishabatra.openmoviedbsearch;
 
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,6 +19,9 @@ public class MovieSearchResultsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_search_results);
 
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         recyclerViewSearchItem = findViewById(R.id.recyclerViewSearchItem);
@@ -25,7 +29,7 @@ public class MovieSearchResultsActivity extends AppCompatActivity {
 
         recyclerViewSearchItem.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
-        MovieSearchInfoAdapter movieSearchInfoAdapter = new MovieSearchInfoAdapter(movieSearchInfos);
+        MovieSearchInfoAdapter movieSearchInfoAdapter = new MovieSearchInfoAdapter(movieSearchInfos, this);
         recyclerViewSearchItem.setAdapter(movieSearchInfoAdapter);
     }
 

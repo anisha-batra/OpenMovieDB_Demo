@@ -30,6 +30,7 @@ import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 import android.support.v4.view.GravityCompat;
 import android.support.design.widget.NavigationView;
+import android.os.StrictMode;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -155,10 +156,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
         navigationView = findViewById(R.id.nav_view);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
 
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);

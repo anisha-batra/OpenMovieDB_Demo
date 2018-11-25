@@ -9,9 +9,11 @@ import java.util.ArrayList;
 
 public class MovieSearchInfoAdapter extends RecyclerView.Adapter<MovieSearchInfoViewHolder> {
     private ArrayList<MovieSearchInfo> movieSearchInfos;
+    private MovieSearchResultsActivity mainActivity;
 
-    public MovieSearchInfoAdapter(ArrayList<MovieSearchInfo> movieSearchInfos) {
+    public MovieSearchInfoAdapter(ArrayList<MovieSearchInfo> movieSearchInfos, MovieSearchResultsActivity mainActivity) {
         this.movieSearchInfos = movieSearchInfos;
+        this.mainActivity = mainActivity;
     }
 
     @NonNull
@@ -20,7 +22,7 @@ public class MovieSearchInfoAdapter extends RecyclerView.Adapter<MovieSearchInfo
        View v = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.activity_movie_search_item_list, viewGroup, false);
 
-        MovieSearchInfoViewHolder movieSearchInfoViewHolder = new MovieSearchInfoViewHolder(v);
+        MovieSearchInfoViewHolder movieSearchInfoViewHolder = new MovieSearchInfoViewHolder(v, mainActivity);
 
         return  movieSearchInfoViewHolder;
     }
